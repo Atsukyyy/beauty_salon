@@ -5,6 +5,8 @@
 <div class="btn-box">
   <%= link_to 'ログイン', sign_in_path, class: 'btn btn-block btn-success' %>
 </div>
-<div class='btn-box'>
-  <%= link_to "ログアウト", sign_out_path, method: :delete, class: 'btn btn-block btn-secondary' %>
-</div>
+<% if @current_user %>
+  <div class='btn-box'>
+    <%= link_to "ログアウト", sign_out_path, method: :delete, class: 'btn btn-block btn-secondary' %>
+  </div>
+<% end %>

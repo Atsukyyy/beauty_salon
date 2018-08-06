@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   get 'sign_in', to: 'sessions#new'
   post 'sign_in', to: 'sessions#create'
   delete 'sign_out', to: 'sessions#destroy'
+
+  resource :user, only: %w[show edit update destroy]
 end

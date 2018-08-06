@@ -1,11 +1,11 @@
-class PagesController < ApplicationController
+class UsersController < ApplicationController
   before_action :set_user
-  
-  def top
+
+  def show
 
   end
 
-  def about
+  def edit
 
   end
 

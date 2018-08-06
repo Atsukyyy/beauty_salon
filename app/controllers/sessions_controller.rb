@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       sign_in(user)
       flash[:success] = "ログインしました。"
-      redirect_to root_path
+      redirect_to user_path
     else
       flash.now[:danger] = "ログインに失敗しました。"
       render 'new'
