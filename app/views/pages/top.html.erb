@@ -1,2 +1,10 @@
 <h1>first</h1>
-<%= link_to 'サービス概要', about_path, class: '' %>
+<div class="btn-box">
+  <%= link_to 'サービス概要', about_path, class: 'btn btn-block btn-warning' %>
+</div>
+<div class="btn-box">
+  <%= link_to 'ログイン', sign_in_path, class: 'btn btn-block btn-success' %>
+</div>
+<div class='btn-box'>
+  <%= link_to "ログアウト", sign_out_path, method: :delete, class: 'btn btn-block btn-secondary' %>
+</div>

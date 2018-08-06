@@ -1,0 +1,49 @@
+<div class="sessions-new" data-js-action='sessions-new'>
+  <div class="cbpn-container">
+    <div class="row">
+      <div class="col-md-6  col-lg-5 col-xl-5 box-1">
+        <div class="mail-title"><strong>メールアドレスでログイン</strong></div>
+        <div class="form">
+          <%= form_tag(sign_in_path, method: "POST") do %>
+            <div class="form-group">
+              <%= label_tag :email, t('view.sign_in.email') %>
+              <%= email_field_tag :email, "", {class: 'form-control'} %>
+            </div>
+            <div class="form-group">
+              <%= label_tag :password, t('view.sign_in.password') %>
+              <%= password_field_tag :password, "", {class: 'form-control'} %>
+            </div>
+            <div class="btn-submit">
+              <%= submit_tag "ログイン", class: 'btn btn-block btn-warning' %>
+            </div>
+          <% end %>
+          
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-5 col-xl-5 box-2">
+        <!-- SNSログイン一時非表示 -->
+        <!-- <div class="sm-box-top">
+          <div class="sns-title"><strong>他のサービスのIDでログイン</strong></div>
+          <div class="btn-group">
+            <a href="/auth/facebook", class="btn-fb">
+              <div class="btn-fb-label">Facebookでログイン</div>
+            </a>
+            <a href="/auth/line", class="btn-line">
+              <div class="btn-line-label">LINEでログイン</div>
+            </a>
+          </div>
+        </div> -->
+        <div class="sm-box-bottom">
+          <div class="signup-title"><strong>メールアドレスで新規登録</strong></div>
+          <p class='description'>
+            会員登録がお済でない方へ<br>
+            クーポン購入には会員登録いただく必要がございます。
+          </p>
+          <div class="btn-signup-box">
+            <%= link_to "こちらから", sign_up_path, class: 'btn btn-block btn-warning' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

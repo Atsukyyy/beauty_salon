@@ -1,0 +1,43 @@
+<div class="form">
+  <%= form_for(@user, url: sign_up_path) do |f| %>
+    <div class="form-group">
+      <%= f.label :name, "名前", class: "" %>
+      <div class="required name-required">※必須</div>
+      <%= f.text_field :name, class: "", placeholder: "(例)田中", required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :email, "メアド" %>
+      <div class="required">※必須</div>
+      <%= f.email_field :email, class: "form-control", placeholder: "taro@example.com", required: true %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password, t('view.sign_up.password') %>
+      <div class="required">※必須</div>
+      <%= f.password_field :password, class: "form-control", placeholder: "6文字以上", required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password_confirmation, t('view.sign_up.password_confirmation') %>
+      <div class="required">※必須</div>
+      <%= f.password_field :password_confirmation, class: "form-control", placeholder: "6文字以上", required: true %>
+    </div>
+<!--
+    <div class="form-group">
+      <%= f.label :password, t('view.sign_up.password') %>
+      <div class="required">※必須</div>
+      <%= f.password_field :password, class: "form-control", placeholder: "6文字以上", required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password_confirmation, t('view.sign_up.password_confirmation') %>
+      <div class="required">※必須</div>
+      <%= f.password_field :password_confirmation, class: "form-control", placeholder: "6文字以上", required: true %>
+    </div>
+ -->
+
+    <div class="btn-confirmation">
+      <%= f.submit "登録する", class: "btn btn-block btn-warning", ":disabled" => "!confirmation" %>
+    </div>
+  <% end %>
+</div>
