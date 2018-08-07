@@ -1,4 +1,5 @@
 class SalonsController < ApplicationController
+  before_action :set_salon
 
   def new
     @salon = Salon.new
@@ -20,6 +21,10 @@ class SalonsController < ApplicationController
   end
 
   private
+
+  def set_salon
+    @salon = current_salon
+  end
 
   def salon_params
     params.require(:salon).permit(:email, :last_name, :name, :password, :password_confirmation, :url, :address, :phone_number)

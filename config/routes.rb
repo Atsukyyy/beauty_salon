@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   post 'sign_in', to: 'sessions#create'
   delete 'sign_out', to: 'sessions#destroy'
 
+  get 'salon_sign_in', to: 'salon_sessions#new'
+  post 'salon_sign_in', to: 'salon_sessions#create'
+  delete 'salon_sign_out', to: 'salon_sessions#destroy'
+
+
   resource :user, only: %w[show edit update destroy]
   resource :salon
 end

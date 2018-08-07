@@ -4,7 +4,7 @@
       <div class="col-md-6  col-lg-5 col-xl-5 box-1">
         <div class="mail-title"><strong>メールアドレスでログイン</strong></div>
         <div class="form">
-          <%= form_tag(salon_sign_in_path, method: "POST") do %>
+          <%= form_tag(sign_in_path, method: "POST") do %>
             <div class="form-group">
               <%= label_tag :email, t('view.sign_in.email') %>
               <%= email_field_tag :email, "", {class: 'form-control'} %>
