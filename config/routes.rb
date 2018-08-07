@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   delete 'sign_out', to: 'sessions#destroy'
 
   resource :user, only: %w[show edit update destroy]
+  resource :salon
 end
