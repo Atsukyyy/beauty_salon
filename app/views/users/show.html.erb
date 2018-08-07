@@ -1,13 +1,17 @@
-<div class="mypages-show" data-js-action="mypages-show">
-  <div class="cbpn-container-s">
-    <div class='mypage-body'>
-
-      <div class='info-section'>
-        <div class='info-group'>
-          お名前: <%= @user.name %>
-        </div>
-      </div>
-
+<h1>マイページ</h1>
+<div class=''>
+  <div class=''>
+    <div class=''>
+      名前: <%= @user.full_name %>
+    </div>
+    <div class=''>
+      性別: <%= @user.sex %>
+    </div>
+    <div class=''>
+      カラー可否: <%= @user.color %>
+    </div>
+    <div class=''>
+      エクステ可否: <%= @user.hair_extension %>
     </div>
   </div>
 </div>

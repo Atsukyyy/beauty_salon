@@ -1,27 +1,67 @@
 <div class="form">
   <%= form_for(@user, url: sign_up_path) do |f| %>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <%= f.label :last_name, "名前", class: "" %>
+        <span class="required name-required">※必須</span>
+        <%= f.text_field :last_name, class: "form-control", placeholder: "(例)田中", required: true %>
+      </div>
+      <div class="form-group col-md-6">
+        <%= f.label :first_name, "名前", class: "", label: false %>
+        <%= f.text_field :first_name, class: "form-control", placeholder: "(例)太郎", required: true %>
+      </div>
+    </div>
+
     <div class="form-group">
-      <%= f.label :name, "名前", class: "" %>
-      <div class="required name-required">※必須</div>
-      <%= f.text_field :name, class: "", placeholder: "(例)田中", required: true %>
+      <%= f.label :birth, "生年月日" %>
+      <span class="required">※必須</span>
+      <%= raw sprintf(
+              f.date_select(
+                  :birth,
+                  use_month_numbers: true,
+                  start_year:        1930,
+                  end_year:          (Time.now.year - 18),
+                  default:           Date.new(1989, 1, 1),
+                  date_separator:    '%s'),
+              '年 ', '月 ') + '日' %>
+    </div>
+
+    <div class="form-check form-check-inline">
+      <%= f.label :sex, "性別" %>
+      <span class="required">※必須</span>
+      <%= f.radio_button :sex, 0 %>女性
+      <%= f.radio_button :sex, 1 %>男性
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-2">
+        <%= f.label :color, "カラー可否" %>
+        <%= f.check_box(:color,{:checked=> false}, true, false) %>
+      </div>
+      <div class="form-group col-md-2">
+        <%= f.label :hair_extension, "エクステ可否" %>
+        <%= f.check_box(:hair_extension,{:checked=> false}, true, false) %>
+      </div>
     </div>
 
     <div class="form-group">
       <%= f.label :email, "メアド" %>
-      <div class="required">※必須</div>
+      <span class="required">※必須</span>
       <%= f.email_field :email, class: "form-control", placeholder: "taro@example.com", required: true %>
     </div>
+
     <div class="form-group">
-      <%= f.label :password, t('view.sign_up.password') %>
-      <div class="required">※必須</div>
+      <%= f.label :password, "パスワード" %>
+      <span class="required">※必須</span>
       <%= f.password_field :password, class: "form-control", placeholder: "6文字以上", required: true %>
     </div>
 
     <div class="form-group">
-      <%= f.label :password_confirmation, t('view.sign_up.password_confirmation') %>
-      <div class="required">※必須</div>
+      <%= f.label :password_confirmation, "パスワード（確認）" %>
+      <span class="required">※必須</span>
       <%= f.password_field :password_confirmation, class: "form-control", placeholder: "6文字以上", required: true %>
     </div>
+
 <!--
     <div class="form-group">
       <%= f.label :password, t('view.sign_up.password') %>
