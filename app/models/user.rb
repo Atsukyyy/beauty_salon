@@ -9,8 +9,6 @@ class User < ApplicationRecord
   validates :birth, presence: true
   validates :sex, presence: true
 
-  belongs_to :salon
-
   def full_name
     "#{last_name} #{first_name}"
   end

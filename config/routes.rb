@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   post 'salon_sign_in', to: 'salon_sessions#create'
   delete 'salon_sign_out', to: 'salon_sessions#destroy'
 
+  get 'tokyo', to: 'prefectures#tokyo' #仮
 
   resource :user, only: %w[show edit update destroy]
   resource :salon

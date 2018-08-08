@@ -33,6 +33,13 @@
       <%= f.radio_button :sex, 1 %>男性
     </div>
 
+    <div class="form-check form-check-inline">
+      <%= f.label :prefecture_id, "住まい" %>
+      <span class="required">※必須</span>
+      <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name %>
+    </div>
+
+
     <div class="form-row">
       <div class="form-group col-md-2">
         <%= f.label :color, "カラー可否" %>
