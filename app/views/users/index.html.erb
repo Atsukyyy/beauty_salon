@@ -1,30 +1,49 @@
 <div class="user-index">
-  <div class="find-users" style="height:300px;">
+  <div class="find-users">
     <div>
       <%= form_tag(users_path, method: "get") do %>
-        <%= label_tag :last_name, "名前" %>
-        <%= text_field_tag :last_name, params[:last_name] %>
-        <%= label_tag :sex, "性別" %>
-        <%= select_tag :sex, options_for_select(User.sexes), include_blank: true %>
-        <%= label_tag :prefecture_id, "都道府県" %>
-        <%= select_tag :prefecture_id, options_for_select(Prefecture.all.map{|x| [x.name,x.id]}), include_blank: true %>
-        <!-- not yet -->
-        <%= label_tag :decade_of_age, "年齢" %>
-        <%= select_tag :decade_of_age, options_for_select(["10代","20代","30代","40代","50代","60代"]), include_blank: true %>
-        
-        <%= label_tag :color, "カラー可否" %>
-        <%= radio_button_tag(:color, "可能", checked = false) %>
-        <%= label_tag :hair_extension, "エクステ可否" %>
-        <%= radio_button_tag(:hair_extension, "可能", checked = false) %>
-        <%= label_tag :nail, "ネイル希望" %>
-        <%= radio_button_tag(:nail, "希望", checked = false) %>
-        <%= label_tag :advertisement, "理由" %>
-        <%= select_tag :advertisement, options_for_select(User.advertisements), include_blank: true %>
-
-        <%= submit_tag "検索" %>
+        <div class="form-row">
+          <div class="form-group">
+            <%= label_tag :last_name, "名前" %>
+            <%= text_field_tag :last_name, params[:last_name] %>
+          </div>
+          <div class="form-group">
+            <%= label_tag :decade_of_age, "年齢" %>
+            <%= select_tag :decade_of_age, options_for_select(["10代","20代","30代","40代","50代","60代"]), include_blank: true %>
+          </div>
+          <div class="form-group">
+            <%= label_tag :sex, "性別" %>
+            <%= select_tag :sex, options_for_select(User.sexes), include_blank: true %>
+          </div>
+          <div class="form-group">
+            <%= label_tag :prefecture_id, "都道府県" %>
+            <%= select_tag :prefecture_id, options_for_select(Prefecture.all.map{|x| [x.name,x.id]}), include_blank: true %>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <%= label_tag :color, "カラー可否" %>
+            <%= radio_button_tag(:color, "可能", checked = false) %>
+          </div>
+          <div class="form-group">
+            <%= label_tag :hair_extension, "エクステ可否" %>
+            <%= radio_button_tag(:hair_extension, "可能", checked = false) %>
+          </div>
+          <div class="form-group">
+            <%= label_tag :nail, "ネイル希望" %>
+            <%= radio_button_tag(:nail, "希望", checked = false) %>
+          </div>
+          <div class="form-group">
+            <%= label_tag :advertisement, "理由" %>
+            <%= select_tag :advertisement, options_for_select(User.advertisements), include_blank: true %>
+          </div>
+          <%= submit_tag "検索" %>
+        </div>
       <% end %>
     </div>
   </div>
+
+  <%= will_paginate @users %>
 
   <% @users.each do |user| %>
     <table class="table table-bordered">

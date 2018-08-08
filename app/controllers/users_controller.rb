@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user
 
   def index
-    @users = User.all
+    @users = User.page(params[:page])
     if params[:last_name].present?
       @users = @users.get_by_name params[:last_name]
     end
