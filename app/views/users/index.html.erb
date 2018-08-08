@@ -11,13 +11,13 @@
         <!-- not yet -->
         <%= label_tag :decade_of_age, "年齢" %>
         <%= select_tag :decade_of_age, options_for_select(["10代","20代","30代","40代","50代","60代"]), include_blank: true %>
+        
         <%= label_tag :color, "カラー可否" %>
-        <%= radio_button @user, :color, "可能" %>
+        <%= radio_button_tag(:color, "可能", checked = false) %>
         <%= label_tag :hair_extension, "エクステ可否" %>
-        <%= radio_button @user, :hair_extension, "可能" %>
+        <%= radio_button_tag(:hair_extension, "可能", checked = false) %>
         <%= label_tag :nail, "ネイル希望" %>
-        <%= radio_button @user, :nail, "希望" %>
-        <!-- until here -->
+        <%= radio_button_tag(:nail, "希望", checked = false) %>
         <%= label_tag :advertisement, "理由" %>
         <%= select_tag :advertisement, options_for_select(User.advertisements), include_blank: true %>
 
