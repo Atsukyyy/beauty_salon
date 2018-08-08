@@ -1,0 +1,25 @@
+.shared-footer {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: gray;
+
+}
+
+.footer-menu a {
+  color: white;
+  text-decoration: none;
+  // position: absolute;
+  // top: 0;
+  // right: 0;
+  // bottom: 0;
+  // left: 0;
+  // margin: auto;
+  // height: 100%;
+  // width: 100%;
+}
+
+.footer-menu-item {
+  margin-right: 15px;
+}

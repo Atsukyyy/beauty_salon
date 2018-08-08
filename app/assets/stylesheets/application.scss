@@ -1,3 +1,15 @@
 // @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "pages/top";
+@import "shared/footer";
+
+body,
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  margin-top: auto;
+}
