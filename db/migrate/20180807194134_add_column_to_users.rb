@@ -6,5 +6,6 @@ class AddColumnToUsers < ActiveRecord::Migration[5.2]
     add_column :users, :prefecture_id, :integer, null:false, default: false
     add_column :users, :picture, :string
     add_column :users, :salon_id, :integer
+    add_column :users, :decade_of_age, :string
   end
 end

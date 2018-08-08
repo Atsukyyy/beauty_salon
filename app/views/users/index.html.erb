@@ -1,6 +1,29 @@
 <div class="user-index">
   <div class="find-users" style="height:300px;">
-    検索フォーム
+    <div>
+      <%= form_tag(users_path, method: "get") do %>
+        <%= label_tag :last_name, "名前" %>
+        <%= text_field_tag :last_name, params[:last_name] %>
+        <%= label_tag :sex, "性別" %>
+        <%= select_tag :sex, options_for_select(User.sexes), include_blank: true %>
+        <%= label_tag :prefecture_id, "都道府県" %>
+        <%= select_tag :prefecture_id, options_for_select(Prefecture.all.map{|x| [x.name,x.id]}), include_blank: true %>
+        <!-- not yet -->
+        <%= label_tag :decade_of_age, "年齢" %>
+        <%= select_tag :decade_of_age, options_for_select(["10代","20代","30代","40代","50代","60代"]), include_blank: true %>
+        <%= label_tag :color, "カラー可否" %>
+        <%= radio_button @user, :color, "可能" %>
+        <%= label_tag :hair_extension, "エクステ可否" %>
+        <%= radio_button @user, :hair_extension, "可能" %>
+        <%= label_tag :nail, "ネイル希望" %>
+        <%= radio_button @user, :nail, "希望" %>
+        <!-- until here -->
+        <%= label_tag :advertisement, "理由" %>
+        <%= select_tag :advertisement, options_for_select(User.advertisements), include_blank: true %>
+
+        <%= submit_tag "検索" %>
+      <% end %>
+    </div>
   </div>
 
   <% @users.each do |user| %>
@@ -15,14 +38,32 @@
         <tr>
           <th scope="row">お住まい</th>
           <td><%= user.prefecture_id %></td>
-          <th scope="row">髪のタイプ</th>
-          <td><%= user.hair_type %></td>
+          <th scope="row">年齢</th>
+          <td><%= user.age %>歳</td>
         </tr>
         <tr>
+          <th scope="row">髪の長さ</th>
+          <td></td>
+          <th scope="row">髪質</th>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">エクステ</th>
+          <td><%= user.hair_extension %></td>
+          <th scope="row">ネイル</th>
+          <td><%= user.nail %></td>
+        </tr>
+        <tr>
+          <th scope="row">カラー</th>
+          <td><%= user.color %></td>
           <th scope="row">希望理由</th>
           <td><%= user.advertisement %></td>
-          <th scope="row">カラー希望</th>
-          <td><%= user.color %></td>
+        </tr>
+        <tr>
+          <th scope="row">登録日</th>
+          <td><%= user.created_at_to_date %></td>
+          <th scope="row">情報更新日</th>
+          <td></td>
         </tr>
       </tbody>
     </table>

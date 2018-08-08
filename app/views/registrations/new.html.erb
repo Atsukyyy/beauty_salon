@@ -29,14 +29,14 @@
     <div class="form-check form-check-inline">
       <%= f.label :sex, "性別" %>
       <span class="required">※必須</span>
-      <%= f.radio_button :sex, 0 %>女性
-      <%= f.radio_button :sex, 1 %>男性
+      <%= f.radio_button :sex, "女性" %>女性
+      <%= f.radio_button :sex, "男性" %>男性
     </div>
 
     <div class="form-check form-check-inline">
       <%= f.label :prefecture_id, "住まい" %>
       <span class="required">※必須</span>
-      <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name %>
+      <%= f.collection_select :prefecture_id, Prefecture.all, :name, :name %>
     </div>
 
     <div class="form-check form-check-inline">
@@ -49,15 +49,16 @@
     <div class="form-row">
       <div class="form-group col-md-2">
         <%= f.label :color, "カラー可否" %>
-        <%= f.check_box(:color,{:checked=> false}, true, false) %>
+        <%= f.check_box(:color, {:checked=> false}, "可能", "不可能") %>
       </div>
       <div class="form-group col-md-2">
         <%= f.label :hair_extension, "エクステ可否" %>
-        <%= f.check_box(:hair_extension,{:checked=> false}, true, false) %>
+        <%= f.check_box(:hair_extension, {:checked=> false}, "可能", "不可能") %>
       </div>
       <div class="form-group col-md-2">
-        <%= f.label :advertisement, "広告可否" %>
-        <%= f.check_box(:advertisement,{:checked=> false}, true, false) %>
+        <%= f.label :advertisement, "理由" %>
+        <%= f.radio_button :advertisement, "単なる節約のため" %>単なる節約のため
+        <%= f.radio_button :advertisement, "モデルを目指しているため" %>モデルを目指しているため
       </div>
     </div>
 

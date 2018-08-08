@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_07_201447) do
+ActiveRecord::Schema.define(version: 2018_08_08_161417) do
 
   create_table "areas", force: :cascade do |t|
     t.string "name"
@@ -57,10 +57,10 @@ ActiveRecord::Schema.define(version: 2018_08_07_201447) do
     t.string "first_name", null: false
     t.date "birth", null: false
     t.integer "sex", null: false
-    t.boolean "color", default: false
-    t.boolean "hair_extension", default: false
+    t.boolean "color", default: false, null: false
+    t.boolean "hair_extension", default: false, null: false
     t.boolean "nail", default: false, null: false
-    t.boolean "advertisement", default: false, null: false
+    t.integer "advertisement", default: 0, null: false
     t.integer "hair_type"
     t.integer "prefecture_id", default: 0, null: false
     t.string "picture"
