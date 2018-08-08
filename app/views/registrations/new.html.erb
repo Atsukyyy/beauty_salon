@@ -39,6 +39,12 @@
       <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name %>
     </div>
 
+    <div class="form-check form-check-inline">
+      <%= f.label :hair_type, "髪型" %>
+      <%= f.radio_button :hair_type, 0 %>ショート
+      <%= f.radio_button :hair_type, 1 %>ロング
+    </div>
+
 
     <div class="form-row">
       <div class="form-group col-md-2">
@@ -48,6 +54,10 @@
       <div class="form-group col-md-2">
         <%= f.label :hair_extension, "エクステ可否" %>
         <%= f.check_box(:hair_extension,{:checked=> false}, true, false) %>
+      </div>
+      <div class="form-group col-md-2">
+        <%= f.label :advertisement, "広告可否" %>
+        <%= f.check_box(:advertisement,{:checked=> false}, true, false) %>
       </div>
     </div>
 

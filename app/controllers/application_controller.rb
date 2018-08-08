@@ -16,4 +16,8 @@ class ApplicationController < ActionController::Base
   def current_salon
     @current_salon ||= Salon.find_by(id: session[:salon_id])
   end
+
+  def set_user
+    @user = current_user
+  end
 end
