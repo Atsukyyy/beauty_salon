@@ -1,0 +1,30 @@
+<div class="user-index">
+  <div class="find-users" style="height:300px;">
+    検索フォーム
+  </div>
+
+  <% @users.each do |user| %>
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <th style="width: 20%">名前</th>
+          <td style="width: 30%"><%= user.full_name %></td>
+          <th style="width: 20%">性別</th>
+          <td style="width: 30%"><%= user.sex %></td>
+        </tr>
+        <tr>
+          <th scope="row">お住まい</th>
+          <td><%= user.prefecture_id %></td>
+          <th scope="row">髪のタイプ</th>
+          <td><%= user.hair_type %></td>
+        </tr>
+        <tr>
+          <th scope="row">希望理由</th>
+          <td><%= user.advertisement %></td>
+          <th scope="row">カラー希望</th>
+          <td><%= user.color %></td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
+</div>

@@ -16,6 +16,6 @@ Rails.application.routes.draw do
 
   get 'tokyo', to: 'prefectures#tokyo' #仮
 
-  resource :user, only: %w[show edit update destroy]
-  resource :salon
+  resources :users, only: %w[index show edit update destroy]
+  resources :salons
 end
