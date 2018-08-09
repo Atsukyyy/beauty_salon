@@ -1,9 +1,7 @@
 class PrefecturesController < ApplicationController
-
-  def tokyo
-    @users = User.where(prefecture_id: 1)
+  # 連動プルダウン
+  def areas
+    @areas = Area.where(prefecture_id: params[:prefecture_id])
+    render 'areas'
   end
-
-  private
-
 end

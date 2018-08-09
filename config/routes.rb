@@ -14,8 +14,16 @@ Rails.application.routes.draw do
   post 'salon_sign_in', to: 'salon_sessions#create'
   delete 'salon_sign_out', to: 'salon_sessions#destroy'
 
-  get 'tokyo', to: 'prefectures#tokyo' #仮
+  resources :users  do
+    collection do
+      get :areas_select
+    end
+  end
 
-  resources :users, only: %w[index show edit update destroy]
+  # 連動プルダウン
+  get 'prefectures/areas'
+  # get 'areas/prefecture' エリアから都道府県はなし
+
+  resources :users #, only: %w[index show edit update destroy areas]
   resources :salons
 end
