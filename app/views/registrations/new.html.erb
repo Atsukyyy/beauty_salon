@@ -39,6 +39,12 @@
       <%= f.collection_select :prefecture_id, Prefecture.all, :name, :name %>
     </div>
 
+    <div class="form-check form-check-inline">
+      <%= f.label :area_id, "住まい" %>
+      <span class="required">※必須</span>
+      <%= f.collection_select :area_id, Area.all, :name, :name %>
+    </div>
+
 
     <div class="form-check form-check-inline">
       <%= f.label :hair_type, "髪型" %>

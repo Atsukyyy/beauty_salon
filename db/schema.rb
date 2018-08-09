@@ -62,7 +62,8 @@ ActiveRecord::Schema.define(version: 2018_08_08_161417) do
     t.boolean "nail", default: false, null: false
     t.integer "advertisement", default: 0, null: false
     t.integer "hair_type"
-    t.integer "prefecture_id", default: 0, null: false
+    t.integer "prefecture_id"
+    t.integer "area_id"
     t.string "picture"
     t.integer "salon_id"
     t.string "decade_of_age"

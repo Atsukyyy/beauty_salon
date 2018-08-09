@@ -7,12 +7,12 @@ class RegistrationsController < ApplicationController
 
   def create
 
+    
+    area = Area.find_by(name: params[:user][:area_id])
 
-    prefecture = Prefecture.find_by(name: params[:user][:prefecture_id])
-
-    @user = prefecture.users.build(user_params)
+    @user = area.users.build(user_params)
     # @user = User.new(user_params)
-
+    # debugger
     if @user.save!
 
       sign_in(@user)
@@ -27,6 +27,6 @@ class RegistrationsController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :last_name, :first_name, :password, :password_confirmation, :birth, :sex, :color, :hair_extension, :nail, :advertisement, :prefecture_id, :hair_type)
+    params.require(:user).permit(:email, :last_name, :first_name, :password, :password_confirmation, :birth, :sex, :color, :hair_extension, :nail, :advertisement, :prefecture_id, :hair_type, :area_id)
   end
 end
