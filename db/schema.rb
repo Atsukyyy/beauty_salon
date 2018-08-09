@@ -64,6 +64,8 @@ ActiveRecord::Schema.define(version: 2018_08_08_161417) do
     t.integer "hair_type"
     t.integer "prefecture_id", default: 0, null: false
     t.string "picture"
+    t.integer "salon_id"
+    t.string "decade_of_age"
   end
 
 end
