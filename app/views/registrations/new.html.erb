@@ -33,16 +33,32 @@
       <%= f.radio_button :sex, "男性" %>男性
     </div>
 
+    <script>
+      $(function() {
+        console.log("start");
+        $('#user_prefecture_id').change(function() {
+          var prefecture_id = $("#user_prefecture_id").val();
+          console.log("!!!!!!!!");
+          if (prefecture_id !== "") {
+            $.get("<%= prefectures_areas_path %>",
+              { prefecture_id: prefecture_id },
+              function(data){ }
+            );
+          }
+        });
+      });
+    </script>
+
     <div class="form-check form-check-inline">
       <%= f.label :prefecture_id, "住まい" %>
       <span class="required">※必須</span>
-      <%= f.collection_select :prefecture_id, Prefecture.all, :name, :name %>
+      <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name %>
     </div>
 
     <div class="form-check form-check-inline">
       <%= f.label :area_id, "住まい" %>
       <span class="required">※必須</span>
-      <%= f.collection_select :area_id, Area.all, :name, :name %>
+      <%= f.collection_select :area_id, Area.all, :id, :name %>
     </div>
 
 
