@@ -19,6 +19,7 @@
             <%= label_tag :prefecture_id, "都道府県" %>
             <%= select_tag :prefecture_id, options_for_select(Prefecture.all.map{|x| [x.name,x.id]}), include_blank: true %>
           </div>
+          <!-- regionからは検索しない -->
         </div>
         <div class="form-row">
           <div class="form-group">
