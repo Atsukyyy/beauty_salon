@@ -76,7 +76,7 @@ class User < ApplicationRecord
   validates :birth, presence: true
   validates :sex, presence: true
 
-  # belongs_to :prefecture
+  belongs_to :prefecture, class_name: "Prefecture"
   belongs_to :area, class_name: "Area"
 
 
@@ -91,6 +91,10 @@ class User < ApplicationRecord
   # 都道府県による絞り込み
   scope :get_by_prefecture_id, ->(prefecture_id) {
     where(prefecture_id: prefecture_id)
+  }
+  # 市町村区による絞り込み
+  scope :get_by_area_id, ->(area_id) {
+    where(area_id: area_id)
   }
   # カラーによる絞り込み
   scope :get_by_color, ->(color) {

@@ -7,10 +7,12 @@ class RegistrationsController < ApplicationController
 
   def create
 
-    
+
     area = Area.find_by(name: params[:user][:area_id])
+    prefecture = area.prefecture
 
     @user = area.users.build(user_params)
+    @user.prefecture = prefecture
     # @user = User.new(user_params)
     # debugger
     if @user.save!

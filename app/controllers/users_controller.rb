@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.page(params[:page])
+
     if params[:last_name].present?
       @users = @users.get_by_name params[:last_name]
     end
@@ -11,6 +12,9 @@ class UsersController < ApplicationController
     end
     if params[:prefecture_id].present?
       @users = @users.get_by_prefecture_id params[:prefecture_id]
+    end
+    if params[:area_id].present?
+      @users = @users.get_by_area_id params[:area_id]
     end
     if params[:color].present?
       @users = @users.get_by_color params[:color]
