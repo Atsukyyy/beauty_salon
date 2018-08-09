@@ -1,7 +1,7 @@
 class Prefecture < ApplicationRecord
   belongs_to :region, class_name: "Region"
 
-  # has_many :areas
+  has_many :areas
   has_many :users, class_name: "User", foreign_key: "prefecture_id" # , through: :areas
 
 

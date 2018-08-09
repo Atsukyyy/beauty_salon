@@ -1,12 +1,7 @@
 class Area < ApplicationRecord
   belongs_to :prefecture
-  has_many :users
+  has_many :users, class_name: "User", foreign_key: "prefecture_id"
 
   validates :name, uniqueness: true
-  validates :name_shortened, length: { maximum: 10 }
-
-  def self.active
-    joins(:prefecture).merge(Prefecture.where(visible: true))
-  end
 
 end

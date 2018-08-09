@@ -62,3 +62,11 @@ Region.find(8).prefectures.create(name: '大分県')
 Region.find(8).prefectures.create(name: '宮崎県')
 Region.find(8).prefectures.create(name: '鹿児島県')
 Region.find(8).prefectures.create(name: '沖縄県')
+
+require "csv"
+range = 1..47
+range.each{|num|
+  CSV.foreach('db/areas.csv') do |row|
+    Prefecture.find(num).areas.create(name: row[num-1])
+  end
+}
