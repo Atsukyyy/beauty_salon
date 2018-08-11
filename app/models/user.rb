@@ -9,6 +9,7 @@ class User < ApplicationRecord
   belongs_to :area, class_name: "Area"
   has_many :rooms
   has_many :staffs, through: :rooms
+  # has_many :messages
 
   enum sex: {
     女性: 0,
