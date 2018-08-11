@@ -7,6 +7,8 @@ class CreateSalons < ActiveRecord::Migration[5.2]
       t.string :url
       t.string :email
       t.string :phone_number
+      t.integer :staff_id
+      t.integer :area_id
 
       t.timestamps
     end

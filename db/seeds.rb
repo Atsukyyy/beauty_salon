@@ -70,3 +70,9 @@ range.each{|num|
     Prefecture.find(num).areas.create(name: row[num-1])
   end
 }
+
+Salon.create(name: "青森サロン", password_digest: "aaaaaa", address: "青森県・・・・ビル３階", url: "localhost:3000/", email: "aomori@a.a", phone_number: "090-0000-0000", area_id: 2)
+
+Salon.find(1).staffs.create(name: "青森太郎", email: "aomori@s.s", password_digest: "aaaaaa")
+Salon.find(1).staffs.create(name: "青森次郎", email: "jaomori@s.s", password_digest: "aaaaaa")
+Salon.find(1).staffs.create(name: "青森三郎", email: "saomori@s.s", password_digest: "aaaaaa")
