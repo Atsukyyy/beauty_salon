@@ -3,6 +3,19 @@ class User < ApplicationRecord
     女性: 0,
     男性: 1
   }
+  enum hair_style: {
+    ベリーショート: 0,
+    ショート: 1,
+    ミディアム: 2,
+    セミロング: 3,
+    ロング: 4
+  }
+
+  enum hair_type: {
+    直毛: 0,
+    ややクセ毛: 1,
+    強いクセ毛: 2
+  }
   # enum prefecture_id: {
   #   北海道: 1,
   #   青森県: 2,
@@ -83,6 +96,10 @@ class User < ApplicationRecord
   # ユーザー名による絞り込み
   scope :get_by_name, ->(last_name) {
     where("last_name like ?", "%#{last_name}%")
+  }
+  # 年齢による絞り込み
+  scope :get_by_age, ->(age_from, age_to) {
+    where(age: age_from..age_to)
   }
   # 性別による絞り込み
   scope :get_by_sex, ->(sex) {

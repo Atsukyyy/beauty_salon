@@ -63,11 +63,20 @@
 
 
     <div class="form-check form-check-inline">
-      <%= f.label :hair_type, "髪型" %>
-      <%= f.radio_button :hair_type, 0 %>ショート
-      <%= f.radio_button :hair_type, 1 %>ロング
+      <%= f.label :hair_style, "髪型" %>
+      <%= f.radio_button :hair_style, "ベリーショート" %>ベリーショート
+      <%= f.radio_button :hair_style, "ショート" %>ショート
+      <%= f.radio_button :hair_style, "ミディアム" %>ミディアム
+      <%= f.radio_button :hair_style, "セミロング" %>セミロング
+      <%= f.radio_button :hair_style, "ロング" %>ロング
     </div>
 
+    <div class="form-check form-check-inline">
+      <%= f.label :hair_type, "髪質" %>
+      <%= f.radio_button :hair_type, "直毛" %>直毛
+      <%= f.radio_button :hair_type, "ややクセ毛" %>ややクセ毛
+      <%= f.radio_button :hair_type, "強いクセ毛" %>強いクセ毛
+    </div>
 
     <div class="form-row">
       <div class="form-group col-md-2">

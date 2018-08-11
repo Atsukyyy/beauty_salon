@@ -6,7 +6,7 @@ class AddColumnToUsers < ActiveRecord::Migration[5.2]
     add_column :users, :prefecture_id, :integer
     add_column :users, :area_id, :integer
     add_column :users, :picture, :string
-    add_column :users, :salon_id, :integer
-    add_column :users, :decade_of_age, :string
+    add_column :users, :hair_style, :integer
+    add_column :users, :age, :integer
   end
 end

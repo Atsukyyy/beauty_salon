@@ -6,17 +6,14 @@ class RegistrationsController < ApplicationController
   end
 
   def create
-
-
     area = Area.find(params[:user][:area_id])
     prefecture = area.prefecture
-
     @user = area.users.build(user_params)
     @user.prefecture = prefecture
+    @user.age = @user.age
     # @user = User.new(user_params)
     # debugger
     if @user.save!
-
       sign_in(@user)
       flash[:success] = "ご登録ありがとうございます。"
       redirect_to root_path
@@ -29,6 +26,7 @@ class RegistrationsController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :last_name, :first_name, :password, :password_confirmation, :birth, :sex, :color, :hair_extension, :nail, :advertisement, :prefecture_id, :hair_type, :area_id)
+    params.require(:user).permit(:email, :last_name, :first_name, :password, :password_confirmation, :birth, :sex, :color, :hair_extension, :nail, :advertisement, :prefecture_id, :hair_type, :area_id, :hair_style)
   end
+
 end

@@ -7,6 +7,19 @@ class UsersController < ApplicationController
     if params[:last_name].present?
       @users = @users.get_by_name params[:last_name]
     end
+    if params[:age_from].present? && params[:age_to].present?
+      if params[:age_from] < params[:age_to]
+        @users = @users.get_by_age(params[:age_from], params[:age_to])
+      else
+        @users = @users.get_by_age(params[:age_to], params[:age_from])
+      end
+    elsif params[:age_from].present? && params[:age_to].empty?
+      flash.now[:danger] = "年齢欄を使用するときは両方に値を入力してください。"
+      render 'index'
+    elsif params[:age_from].empty? && params[:age_to].present?
+      flash.now[:danger] = "年齢欄を使用するときは両方に値を入力してください。"
+      render 'index'
+    end
     if params[:sex].present?
       @users = @users.get_by_sex params[:sex]
     end

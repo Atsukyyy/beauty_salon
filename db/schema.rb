@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 2018_08_08_161417) do
 
   create_table "areas", force: :cascade do |t|
     t.string "name"
-    t.string "name_shortened"
     t.integer "prefecture_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -22,8 +21,6 @@ ActiveRecord::Schema.define(version: 2018_08_08_161417) do
 
   create_table "prefectures", force: :cascade do |t|
     t.string "name"
-    t.string "name_shortened"
-    t.string "slug"
     t.integer "region_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -65,8 +62,8 @@ ActiveRecord::Schema.define(version: 2018_08_08_161417) do
     t.integer "prefecture_id"
     t.integer "area_id"
     t.string "picture"
-    t.integer "salon_id"
-    t.string "decade_of_age"
+    t.integer "hair_style"
+    t.integer "age"
   end
 
 end
