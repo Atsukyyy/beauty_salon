@@ -1,4 +1,15 @@
 class User < ApplicationRecord
+  validates :email, presence: false, length: { maximum: 255 }, uniqueness: true
+  validates :first_name, presence: true, length: { maximum: 45 }
+  validates :last_name, presence: true, length: { maximum: 45 }
+  validates :birth, presence: true
+  validates :sex, presence: true
+
+  belongs_to :prefecture, class_name: "Prefecture"
+  belongs_to :area, class_name: "Area"
+  has_many :rooms
+  has_many :staffs, through: :rooms
+
   enum sex: {
     女性: 0,
     男性: 1
@@ -83,15 +94,6 @@ class User < ApplicationRecord
     希望: true,
     希望しない: false
   }
-  validates :email, presence: false, length: { maximum: 255 }, uniqueness: true
-  validates :first_name, presence: true, length: { maximum: 45 }
-  validates :last_name, presence: true, length: { maximum: 45 }
-  validates :birth, presence: true
-  validates :sex, presence: true
-
-  belongs_to :prefecture, class_name: "Prefecture"
-  belongs_to :area, class_name: "Area"
-
 
   # ユーザー名による絞り込み
   scope :get_by_name, ->(last_name) {

@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   post 'sign_in', to: 'sessions#create'
   delete 'sign_out', to: 'sessions#destroy'
 
+  get 'staff_sign_in', to: 'staff_sessions#new'
+  post 'staff_sign_in', to: 'staff_sessions#create'
+  delete 'staff_sign_out', to: 'staff_sessions#destroy'
+
   get 'salon_sign_in', to: 'salon_sessions#new'
   post 'salon_sign_in', to: 'salon_sessions#create'
   delete 'salon_sign_out', to: 'salon_sessions#destroy'
@@ -26,4 +30,7 @@ Rails.application.routes.draw do
 
   resources :users #, only: %w[index show edit update destroy areas]
   resources :salons
+  resources :staffs
+  resource :room
+  resource :message
 end

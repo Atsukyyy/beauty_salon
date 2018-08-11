@@ -10,11 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_11_094614) do
+ActiveRecord::Schema.define(version: 2018_08_11_100519) do
 
   create_table "areas", force: :cascade do |t|
     t.string "name"
     t.integer "prefecture_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "context"
+    t.integer "user_id"
+    t.integer "staff_id"
+    t.integer "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -29,6 +38,13 @@ ActiveRecord::Schema.define(version: 2018_08_11_094614) do
   create_table "regions", force: :cascade do |t|
     t.string "name"
     t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "staff_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

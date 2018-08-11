@@ -65,14 +65,19 @@ Region.find(8).prefectures.create(name: '沖縄県')
 
 require "csv"
 range = 1..47
-range.each{|num|
+range.each do |num|
   CSV.foreach('db/areas.csv') do |row|
     Prefecture.find(num).areas.create(name: row[num-1])
   end
-}
+end
 
-Salon.create(name: "青森サロン", password_digest: "aaaaaa", address: "青森県・・・・ビル３階", url: "localhost:3000/", email: "aomori@a.a", phone_number: "090-0000-0000", area_id: 2)
+Area.find(2).salons.create(name: "青森サロン", password_digest: "aaaaaa", address: "青森県・・・・ビル３階", url: "localhost:3000/", email: "aomori@a.a", phone_number: "090-0000-0000")
 
-Salon.find(1).staffs.create(name: "青森太郎", email: "aomori@s.s", password_digest: "aaaaaa")
-Salon.find(1).staffs.create(name: "青森次郎", email: "jaomori@s.s", password_digest: "aaaaaa")
-Salon.find(1).staffs.create(name: "青森三郎", email: "saomori@s.s", password_digest: "aaaaaa")
+Salon.find(1).staffs.create(name: "青森太郎", email: "aomori@s.s", password: "aaaaaa")
+Salon.find(1).staffs.create(name: "青森次郎", email: "jaomori@s.s", password: "aaaaaa")
+Salon.find(1).staffs.create(name: "青森三郎", email: "saomori@s.s", password: "aaaaaa")
+
+# Area.find(2).users.create(last_name: "田中", first_name: "太郎", birth: 19900901, sex: 1, color: true, hair_extension: false, nail: false, advertisement: 1, hair_type: 1, picture: nil, hair_style: 1)
+
+
+#<User id: nil, name: nil, email: nil, created_at: nil, updated_at: nil, password_digest: nil, last_name: nil, first_name: nil, birth: nil, sex: nil, color: "不可能", hair_extension: "不可能", nail: "希望しない", advertisement: "単なる節約のため", hair_type: nil, prefecture_id: nil, area_id: nil, picture: nil, hair_style: nil, age: nil>
