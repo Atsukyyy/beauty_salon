@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2018_08_11_100519) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.string "context"
+    t.string "content"
     t.integer "user_id"
     t.integer "staff_id"
     t.integer "room_id"
