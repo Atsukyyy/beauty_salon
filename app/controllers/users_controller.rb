@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user
+  before_action :sign_in_user, only: [:show, :edit, :update]
+  before_action :correct_user,   only: [:show, :edit, :update]
 
   def index
     @users = User.page(params[:page])
@@ -50,12 +52,40 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
+  end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = "Profile updated"
+      redirect_to @user
+    else
+      render 'edit'
+    end
   end
 
   private
 
   def set_user
     @user = current_user
+  end
+
+  # ログイン済みユーザーかどうか確認
+  def sign_in_user
+    unless signed_in?
+      flash[:danger] = "Please log in."
+      redirect_to sign_in_path
+    end
+  end
+
+  # 正しいユーザーかどうか確認
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
+  end
+
+  def user_params
+    params.require(:user).permit(:email, :last_name, :first_name, :password, :password_confirmation, :birth, :sex, :color, :hair_extension, :nail, :advertisement, :prefecture_id, :hair_type, :area_id, :hair_style)
   end
 end
