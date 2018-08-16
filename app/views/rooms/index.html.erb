@@ -1,0 +1,10 @@
+<% @rooms.zip(@staff_id) do |room,staff_id| %>
+  <%= room.id %>
+
+
+  <% s = Staff.find(staff_id) %>
+  <div>
+    <%= s.name %>さんとのトーク
+    <%= link_to 'ここ', user_room_path(@user.id,room.id), class: 'nav-link' %>
+  </div>
+<% end %>

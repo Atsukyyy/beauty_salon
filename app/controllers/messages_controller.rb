@@ -8,14 +8,17 @@ class MessagesController < ApplicationController
 
   def new
     @user = User.find(params[:user_id])
-    Room.create()
-    @message = Message.new
+    @room = @user.rooms.build
+    @message = @user.messages.build
   end
 
   def create
-    @room = Room.create(user_id: params[:id], staff_id: session[:staff_id])
-    @message = @room.messages.build(message_params)
+    @room = Room.create(user_id: params[:user_id], staff_id: session[:staff_id])
+    @user = User.find(params[:user_id])
+    @message = @user.messages.build
 
+    @message.staff_id = 1
+    @message.room_id = 1
     if @message.save!
       flash[:success] = "送信されました。"
       redirect_to root_path

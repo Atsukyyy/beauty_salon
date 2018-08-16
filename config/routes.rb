@@ -29,9 +29,9 @@ Rails.application.routes.draw do
   # get 'areas/prefecture' エリアから都道府県はなし
 
   resources :users do
-    resources :messages
+    resources :messages, :rooms
   end #, only: %w[index show edit update destroy areas]
   resources :salons
   resources :staffs
-  resources :rooms
+  # resources :rooms
 end

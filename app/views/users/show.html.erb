@@ -18,4 +18,5 @@
   </div>
   <%= link_to 'メッセージを送る', new_user_message_path(@user), class: 'nav-link' %>
   <%= link_to "プロフィールを更新する", edit_user_path(current_user), class: "nav-link" %>
+  <%= link_to 'トークルーム一覧へ', user_rooms_path(@user), class: 'nav-link' %>
 </div>

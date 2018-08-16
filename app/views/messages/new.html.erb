@@ -3,7 +3,7 @@
     <div class="form-group col-md-6">
       <%= f.label :context, "メッセージ内容", class: "" %>
       <span class="required name-required">※必須</span>
-      <%= f.text_field :context, class: "form-control", placeholder: "(例)田中", required: true %>
+      <%= f.text_field :content, class: "form-control", placeholder: "(例)田中", required: true %>
     </div>
     <div class="btn-confirmation">
       <%= f.submit "送信する", class: "btn btn-block btn-warning", ":disabled" => "!confirmation" %>
